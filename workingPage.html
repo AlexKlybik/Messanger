@@ -1,0 +1,77 @@
+<?php
+session_start();
+include ('connectDB.php');
+?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Как интересно оформить комментарий с помощью CSS</title>
+    <link href="messageStyle.css" rel="stylesheet">
+    <script src="FlatUI/dist/js/vendor/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+               type: "POST",
+               async: false,
+               url: "getContact.php",
+                success: function (data) {
+                    var json = JSON.parse(data);
+                    for(var i=0;i<json.length;i++) {
+                        $("#contactSelect").append("<option value=\""+json[i]['id']+"\">"+ json[i]['login']+"</option>");
+                    }
+                }
+            });
+            $('#contactSelect option:first').attr('selected', 'selected');
+            viewMessages();
+        });
+        function viewMessages(){
+            $("#messageDiv").empty();
+            var idRecipient = $("#contactSelect option:selected").val();
+            console.log(idRecipient)
+            $.ajax({
+                type: "POST",
+                url: "getMessages.php",
+                data: {recipient_id: idRecipient},
+                success: function (data) {
+                    var json = JSON.parse(data);
+                    for(var i=0;i<json.length;i++) {
+                        $("#messageDiv").append("<div class='comments'><div class='comment dialog'><p>"+json[i]['message']+"</p></div></div>");
+                    }
+                }
+
+            });
+        }
+        function insertMessage(){
+            var text = $("#inputText").val();
+            var idRecipient = $("#contactSelect option:selected").val();
+            $.ajax({
+                type: "POST",
+                url: "setMessages.php",
+                data: {recipient_id: idRecipient,text: text},
+
+
+            });
+        }
+    </script>
+</head>
+<body>
+<div class="main">
+<div class="contact">
+    <select id="contactSelect" onchange="viewMessages()"></select>
+
+</div>
+    <div class="screen2">
+<div class="message" id="messageDiv">
+
+
+</div>
+
+<div class="input">
+<input type="text" id="inputText">
+    <input type="button" id="inputButton" onclick="insertMessage()" value="отправить">
+</div>
+    </div>
+</div>
+</body>
+</html>

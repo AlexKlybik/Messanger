@@ -31,8 +31,9 @@ function loginIn() {
             url: "authorization.php",
             data: {login: login, password: password},
             success: function (data) {
+
                 if (data == 'valid') {
-                    document.location.href = "workingPage.php";
+                    document.location.href = "workingPage.html";
                 } else if (data == 'invalid') {
                     writeErrorText("Неправильный логин или пароль");
                     inputElem.css('border-color', 'red');
