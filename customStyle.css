@@ -1,0 +1,28 @@
+.login-screen{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.login-form{
+    width: 50%;
+    min-height: 300px;
+    min-width: 300px;
+    left: 20%;
+    right: 20%;
+}
+.error-input{
+border-color: red;
+}
+.error-label{
+color: red;
+}
+
+.firstPageImage{
+    text-align: center;
+    width: 100%;
+    height: 100px;
+    background-color: #00bdef;
+}

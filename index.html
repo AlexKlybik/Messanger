@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="FlatUI/dist/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="FlatUI/dist/css/flat-ui.css" rel="stylesheet">
+    <link href="FlatUI/docs/assets/css/demo.css" rel="stylesheet">
+
+    <link href="customStyle.css" rel="stylesheet">
+
+    <script src="FlatUI/dist/js/vendor/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="FlatUI/dist/js/flat-ui.min.js"></script>
+
+    <script src="FlatUI/docs/assets/js/application.js"></script>
+    <script type="text/javascript" src="commandForPages.js"></script>
+    <title>Title</title>
+</head>
+<body>
+
+    <div class="login-screen">
+
+        <div class="login-form">
+
+            <a id="text" >Добро пожаловать!</a>
+
+            <div class="form-group" style="margin-top: 10px">
+                <input type="text" class="form-control login-field"  value="" placeholder="Введите ваше имя" name='login'
+                       id="login-name" />
+                <label class="login-field-icon fui-user" for="login-name" id="login-name-label"></label>
+            </div>
+
+            <div class="form-group">
+                <input type="password" class="form-control login-field" value="" placeholder="Введите пароль"
+                       name='password'  id="login-pass"/>
+                <label class="login-field-icon fui-lock" for="login-pass" id="login-pass-label"></label>
+            </div>
+
+            <div class="form-group" id="repeatPassword" style="display: none">
+                <input type="password" class="form-control login-field" value="" placeholder="Подтвердите пароль"
+                       name='password_confirm' id="confirm-pass"/>
+                <label class="login-field-icon fui-lock" for="login-pass" id="confirm-pass-label"></label>
+            </div>
+
+            <span id="errorText" style="color: red;display: none" ></span>
+
+            <input class="btn btn-primary btn-lg btn-block" type='button' name="authorization" id="comeIn" href="#"
+                   style="margin-top: 15px" onclick="loginIn()" value="Войти" />
+            <input class="btn btn-primary btn-lg btn-block" type='submit' name="registration" id="register" href="#"
+                    style="display: none;margin-top: 15px" onclick="registration()" value="Зарегистрироваться" />
+            <a class="login-link" href="#" id="labelRegister" onclick="startRegistration()">Register?</a>
+           <!-- <a class="login-link" href="#" id="lostPassword">Lost your password?</a> -->
+            <a class="login-link" href="#" id="labelComeIn" style="display: none" onclick="finishRegistration()">Come
+                In?</a>
+        </div>
+    </div>
+
+
+</body>
+</html>
