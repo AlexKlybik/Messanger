@@ -45,15 +45,18 @@ body {
     left: 0px;
     height: 100%;
     width:30%;
+    top:0px;
+    bottom: 0px;
 }
 .screen2{
     position: absolute;
-   // border: 1px solid #8e44ad;
     left: 30%;
     height: 100%;
     width: 70%;
     margin: 0px;
     padding: 0px;
+    top:0px;
+    bottom: 0px;
 }
 .message{
     position: absolute;
